@@ -75,3 +75,41 @@ header p {
     color: #888;
     margin: 5px 0 0;
 }
+
+.container{ 
+    width: 500px;
+    border: 2px solid rgba(90, 138, 229, 0.5);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 50px; 
+    margin: 10px auto;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: relative;
+    margin-top: 60px;
+    text-align: justify;
+
+}
+
+.gallery {
+    position: relative;
+    width: 80vw;
+    height: 80vh;
+}
+
+.gallery img {
+    position: absolute;
+    border: 5px solid #d2b48c; /* Wooden-like frame color */
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Define the positioning for each frame */
+.frame1 { top: 10px; left: 10px; width: 150px; height: 200px; }
+.frame2 { top: 40px; left: 180px; width: 120px; height: 160px; }
+.frame3 { top: 220px; left: 100px; width: 180px; height: 240px; }
+.frame4 { top: 150px; left: 320px; width: 200px; height: 300px; }
+.frame5 { top: 350px; left: 50px; width: 130px; height: 180px; }
