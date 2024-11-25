@@ -1,0 +1,86 @@
+<web-app>
+    
+    <servlet>
+        <servlet-name>servletDemo</servlet-name>
+        <servlet-class>UserDetailsServlet</servlet-class>
+        
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>servletDemo</servlet-name>
+        <url-pattern>/result</url-pattern>
+    </servlet-mapping>
+    <!--  -->
+    <servlet>
+        <servlet-name>deathPredictor</servlet-name>
+        <servlet-class>DoOrDie</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>deathPredictor</servlet-name>
+        <url-pattern>/deathWish</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Sample</servlet-name>
+        <servlet-class>HelloWorld</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>Sample</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>BagServlet</servlet-name>
+        <servlet-class>BagServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BagServlet</servlet-name>
+        <url-pattern>/BagServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoginWithCookie</servlet-name>
+        <servlet-class>LoginWithCookie</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginWithCookie</servlet-name>
+        <url-pattern>/LoginWithCookie</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddToCartServlet</servlet-name>
+        <servlet-class>AddToCartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddToCartServlet</servlet-name>
+        <url-pattern>/AddToCartServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ShowUserDetailsServlet</servlet-name>
+        <servlet-class>ShowUserDetailsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowUserDetailsServlet</servlet-name>
+        <url-pattern>/ShowUserDetailsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+</web-app>
+
+

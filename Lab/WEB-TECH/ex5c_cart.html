@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .cart-container {
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .cart-container h1 {
+            color: #5a67d8;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .cart-container label {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .cart-container input {
+            padding: 10px;
+            width: calc(100% - 22px);
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .cart-container button {
+            padding: 10px 20px;
+            background-color: #5a67d8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .cart-container button:hover {
+            background-color: #434bb4;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="cart-container">
+        <h1>Shopping Cart</h1>
+        <form action="AddToCartServlet" method="post">
+            <label for="item">Enter Item:</label>
+            <input type="text" id="item" name="item" placeholder="E.g., Backpack" required>
+            <button type="submit">Add to Cart</button>
+        </form>
+        <div class="footer">Your shopping made easy!</div>
+    </div>
+</body>
+</html>
