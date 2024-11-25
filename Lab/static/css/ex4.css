@@ -1,5 +1,9 @@
 body{ 
     background-size: cover; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 .container{ 
@@ -7,12 +11,12 @@ body{
     border: 2px solid rgba(90, 138, 229, 0.5);
     background-color: rgba(255, 255, 255, 0.8);
     padding: 50px; 
-    margin: 10px auto;
     box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    border-radius: 10%;
     position: relative;
     margin-top: 60px;
-    text-align: justify;
+    text-align: center;
+    margin: 20px 0;
 
 }
 
@@ -46,3 +50,56 @@ body{
 .frame3 { top: 220px; left: 100px; width: 180px; height: 240px; }
 .frame4 { top: 150px; left: 320px; width: 200px; height: 300px; }
 .frame5 { top: 350px; left: 50px; width: 130px; height: 180px; }
+
+.cursor-container {
+    text-align: center;
+    border-radius: 10%;
+    margin: 20px 0;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #e79a27;
+    text-shadow: 2px 2px 4px #e79a27;
+    margin-bottom: 20px;
+}
+
+.time-btn {
+    font-size: large;
+    padding: 10px 20px;
+    background-color: #e79a27;
+    border: none;
+    border-radius: 5px;
+}
+
+.box {
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.hover-paragraph:hover {
+    transform: translateY(-5px);
+}
+
+.image-container {
+    position: relative;
+    text-align: center;
+}
+
+#hoverImage {
+    border-radius: 10%;
+    width: 200px;
+    transition: transform 0.3s;
+}
+
+#hoverText {
+    display: none;
+    position: relative;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+}
+
+.image-container:hover{
+    transform: translateY(10px);
+}
