@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BagDetails>
+    <Bag>
+        <ID>1</ID>
+        <Brand>Gucci</Brand>
+        <Type>Handbag</Type>
+        <Price>1500.00</Price>
+    </Bag>
+    <Bag>
+        <ID>2</ID>
+        <Brand>Louis Vuitton</Brand>
+        <Type>Backpack</Type>
+        <Price>2000.00</Price>
+    </Bag>
+    <Bag>
+        <ID>3</ID>
+        <Brand>Samsonite</Brand>
+        <Type>Trolley</Type>
+        <Price>500.00</Price>
+    </Bag>
+    <Bag>
+        <ID>4</ID>
+        <Brand>Prada</Brand>
+        <Type>Sling Bag</Type>
+        <Price>1800.00</Price>
+    </Bag>
+    <Bag>
+        <ID>5</ID>
+        <Brand>American Tourister</Brand>
+        <Type>Duffel Bag</Type>
+        <Price>300.00</Price>
+    </Bag>
+</BagDetails>
