@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
-    private static final String DB_URL = "jdbc:oracle:thin:@localhost:1521:XE"; // Updated for Oracle
-    private static final String DB_USER = "system"; // Replace with your Oracle username
-    private static final String DB_PASSWORD = "cscorner"; // Replace with your Oracle password
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/bags"; 
+    private static final String DB_USER = "root"; 
+    private static final String DB_PASSWORD = ""; 
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -29,20 +29,20 @@ public class RegisterServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         try {
-            // Load the Oracle JDBC driver
-            Class.forName("oracle.jdbc.driver.OracleDriver");
+            // Load the MySQL JDBC driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
             // Establish database connection
             Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
             // Insert user details into the database
-            String query = "INSERT INTO users (name, dob, username, email, password) VALUES (?, TO_DATE(?, 'YYYY-MM-DD'), ?, ?, ?)";
+            String query = "INSERT INTO users (name, dob, username, email, password) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setString(1, name);
-            stmt.setString(2, dob); // Ensure the date format matches Oracle's requirements
+            stmt.setString(2, dob); 
             stmt.setString(3, username);
             stmt.setString(4, email);
-            stmt.setString(5, password); // Ensure to hash this in a real application
+            stmt.setString(5, password); 
 
             int rowsInserted = stmt.executeUpdate();
 
