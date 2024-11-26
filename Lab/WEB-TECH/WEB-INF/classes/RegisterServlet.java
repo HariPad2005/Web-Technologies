@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/bags"; // MySQL database URL
-    private static final String DB_USER = "root"; // MySQL username (default in XAMPP)
-    private static final String DB_PASSWORD = ""; // MySQL password (leave empty if not set in XAMPP)
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/bags"; 
+    private static final String DB_USER = "root"; 
+    private static final String DB_PASSWORD = ""; 
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -39,10 +39,10 @@ public class RegisterServlet extends HttpServlet {
             String query = "INSERT INTO users (name, dob, username, email, password) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setString(1, name);
-            stmt.setString(2, dob); // Ensure the date format matches MySQL's requirements (e.g., YYYY-MM-DD)
+            stmt.setString(2, dob); 
             stmt.setString(3, username);
             stmt.setString(4, email);
-            stmt.setString(5, password); // Ensure to hash this in a real application
+            stmt.setString(5, password); 
 
             int rowsInserted = stmt.executeUpdate();
 
