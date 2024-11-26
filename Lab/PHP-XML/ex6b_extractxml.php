@@ -38,7 +38,7 @@ if ($result->num_rows > 0) {
 header('Content-Type: text/xml');
 
 // Output the XML
-echo $xml->asXML();
+echo $xml->asXML('ex6b_output.xml');
 
 // Close the connection
 $conn->close();
