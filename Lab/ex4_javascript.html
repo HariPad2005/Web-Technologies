@@ -50,6 +50,10 @@
                     <div class="col-md-12">
                         <label for="inputpassword" class="form-label">Password</label>
                         <input type="password" class="form-control" name="password" id="enterpassword">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="confirmpassword" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" name="confirmpassword" id="confirmpassword">
                     </div><br>
                     <div class="col-12">
                         <div class="form-check">
@@ -70,16 +74,17 @@
     <script>
         function validateForm() {
             // Get form fields
-            const firstname = document.getElementById('firstname').value.trim(); //trim()-used to remove whitespace from both ends of a string
+            const firstname = document.getElementById('firstname').value.trim();
             const lastname = document.getElementById('lastname').value.trim();
             const city = document.getElementById('city').value.trim();
             const username = document.getElementById('username').value.trim();
             const email = document.getElementById('mail').value.trim();
             const password = document.getElementById('enterpassword').value.trim();
+            const confirmPassword = document.getElementById('confirmpassword').value.trim();
             const agreeTerms = document.getElementById('invalidCheck2').checked;
 
             // Simple validation for empty fields
-            if (!firstname || !lastname || !city || !username || !email || !password) {
+            if (!firstname || !lastname || !city || !username || !email || !password || !confirmPassword) {
                 alert("Please fill in all fields.");
                 return false;
             }
@@ -91,13 +96,24 @@
                 return false;
             }
 
+            // Password validation (minimum length and match with confirm password)
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            }
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+
             // Terms and conditions check
             if (!agreeTerms) {
                 alert("You must agree to the terms and conditions.");
                 return false;
             }
 
-            // If all validations pass
+            // If all validations pass, the form can be submitted
+            alert("Form submitted successfully!");
             return true;
         }
     </script>
