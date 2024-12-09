@@ -1,45 +1,103 @@
-<?php
-// Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "BagsDB"; // Changed database name to BagsDB
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bag Details from XML</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 50px;
+        }
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+        /* Table styles */
+        table {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-// SQL query to fetch bag details
-$sql = "SELECT id, brand, type, price FROM BagDetails";
-$result = $conn->query($sql);
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
 
-// Create a new XML document
-$xml = new SimpleXMLElement('<BagDetails/>');
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
 
-// Fetch the data and add it to the XML
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        // Add each bag as an XML element
-        $bag = $xml->addChild('Bag');
-        $bag->addChild('ID', $row['id']);
-        $bag->addChild('Brand', $row['brand']);
-        $bag->addChild('Type', $row['type']);
-        $bag->addChild('Price', $row['price']);
+        td {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover td {
+            background-color: #e0e0e0;
+        }
+
+        /* Error message styling */
+        .error {
+            color: red;
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bag Details</h1>
+
+    <?php
+    // Specify the XML file path
+    $xmlFile = 'ex6b_output.xml'; // Replace with your actual XML file path
+
+    // Load the XML file
+    if (file_exists($xmlFile)) {
+        $xml = simplexml_load_file($xmlFile);
+    } else {
+        die("Error: XML file not found.");
     }
-} else {
-    echo "0 results found";
-}
 
-// Set the correct header to output XML
-header('Content-Type: text/xml');
+    // Check if there are any bags in the XML
+    if ($xml->Bag) {
+        echo "<table>
+                <tr>
+                    <th>ID</th>
+                    <th>Brand</th>
+                    <th>Type</th>
+                    <th>Price</th>
+                </tr>";
 
-// Output the XML
-echo $xml->asXML('ex6b_output.xml');
+        // Loop through each 'Bag' element in the XML
+        foreach ($xml->Bag as $bag) {
+            echo "<tr>
+                    <td>" . $bag->ID . "</td>
+                    <td>" . $bag->Brand . "</td>
+                    <td>" . $bag->Type . "</td>
+                    <td>$" . $bag->Price . "</td>
+                  </tr>";
+        }
+        echo "</table>";
+    } else {
+        echo "<p class='error'>No bag details found in the XML file.</p>";
+    }
+    ?>
 
-// Close the connection
-$conn->close();
-?>
+</body>
+</html>
